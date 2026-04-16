@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Për Jettën Time ❤️</title>
+    <style>
+        /* Sfondi me gradient romantik */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Kutia me efekt xhami */
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.4);
+            max-width: 85%;
+            color: white;
+        }
+
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        p { 
+            font-size: 1.2rem; 
+            line-height: 1.6; 
+            font-weight: 500;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+        }
+
+        .names-tag {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff4d6d;
+            padding: 12px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+
+        /* Elementet që fluturojnë */
+        .floating {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.6));
+            font-weight: bold;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Për Princeshën Time ❤️</h1>
+        <p>
+            Jetta ime te dua shum, je goca me e bukur ne bote jo vetem fizikisht po dhe shpirterisht, e ndjej veten shum me fat qe te kam.
+        </p>
+        <div class="names-tag">Bushi ❤️ Soni</div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const el = document.createElement('div');
+            el.className = 'floating';
+            
+            // Emrat tuaj dhe simbolet që do fluturojnë
+            const items = ['❤️', '💖', 'Soni', 'Bushi', '✨', '🌸'];
+            const chosen = items[Math.floor(Math.random() * items.length)];
+            
+            el.innerHTML = chosen;
+            
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = Math.random() * (25 - 15) + 15 + 'px';
+            
+            // Ngjyra e emrave dhe zemrave
+            if(chosen === 'Soni' || chosen === 'Bushi') {
+                el.style.color = '#ffffff';
+                el.style.background = 'rgba(255, 77, 109, 0.5)';
+                el.style.padding = '5px 10px';
+                el.style.borderRadius = '20px';
+            } else {
+                el.style.color = '#ff4d6d';
+            }
+            
+            const duration = Math.random() * (7 - 4) + 4;
+            el.style.animation = `floatUp ${duration}s linear forwards`;
+            
+            document.body.appendChild(el);
+
+            setTimeout(() => {
+                el.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createHeart, 350);
+    </script>
+</body>
+</html>
