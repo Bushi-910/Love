@@ -19,11 +19,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Kutia me efekt xhami më të fortë dhe kornizë */
+        /* Kutia kryesore me kornizë dhe shkëlqim (glow) */
         .container {
             text-align: center;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.4); /* Efekt xhami */
             backdrop-filter: blur(10px);
             padding: 50px;
             border-radius: 40px;
@@ -31,15 +31,16 @@
             box-shadow: 0 15px 50px rgba(255, 77, 109, 0.6);
             max-width: 80%;
             width: 1000px;
+            color: #222; /* Shkrim i zi për qartësi */
         }
 
-        /* Titulli më i madh dhe i fortë */
+        /* Titulli kryesor i madh dhe me 'glow' */
         h1 { 
             color: #d80032; /* E kuqe e fortë */
-            font-size: 3.5rem; 
+            font-size: 3.8rem; 
             margin-bottom: 25px;
             margin-top: 0;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
             animation: pulse 2s infinite;
             font-weight: 800;
         }
@@ -50,17 +51,17 @@
             100% { transform: scale(1); }
         }
 
-        /* Teksti kryesor: Shkrim shumë më i madh dhe i zi për qartësi */
+        /* Teksti kryesor (mesazhi): Shkrim super i madh dhe i qartë */
         p { 
-            color: #222; /* E zezë/gri e errët */
-            font-size: 2.2rem; 
+            color: #222; 
+            font-size: 2.3rem; 
             line-height: 1.4; 
             font-weight: 700;
             margin-bottom: 30px;
             text-shadow: none;
         }
 
-        /* Kutia e emrave më e madhe */
+        /* Kutia e emrave poshtë */
         .names-tag {
             font-size: 2.5rem;
             display: inline-block;
@@ -73,73 +74,22 @@
             border: 2px solid #d80032;
         }
 
-        /* Elementet që fluturojnë */
-        .floating {
+        /* Elementi i zemrave që fluturojnë */
+        .floating-heart {
             position: absolute;
+            width: 150px; /* Madhësia e unazës së jashtme të zemrës */
+            height: 150px;
+            background: rgba(216, 0, 50, 0.8); /* E kuqe e fortë */
+            border-radius: 50%; /* Bëhet rreth */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             pointer-events: none;
             z-index: 1;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
-            font-weight: 900;
-            opacity: 0.9;
+            box-shadow: 0 0 15px rgba(216, 0, 50, 0.5); /* Shkëlqim */
+            animation: floatUp ease forwards;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            5% { opacity: 0.9; }
-            95% { opacity: 0.9; }
-            100% { transform: translateY(-30vh) rotate(360deg); opacity: 0; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Për Princeshën Time ❤️</h1>
-        <p>
-            Jetta ime te dua shum, je goca me e bukur ne bote jo vetem fizikisht po dhe shpirterisht, e ndjej veten shum me fat qe te kam.
-        </p>
-        <div class="names-tag">Bushi ❤️ Soni</div>
-    </div>
-
-    <script>
-        function createHeart() {
-            const el = document.createElement('div');
-            el.className = 'floating';
-            
-            // Emrat tuaj, zemrat dhe unazat
-            const items = ['❤️', '💖', 'Soni', 'Bushi', '✨', '🌸', '💍', '💎'];
-            const chosen = items[Math.floor(Math.random() * items.length)];
-            
-            el.innerHTML = chosen;
-            
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * (40 - 25) + 25 + 'px'; // Më të mëdha
-            
-            // Stilimi i veçantë për emrat dhe unazat
-            if(chosen === 'Soni' || chosen === 'Bushi') {
-                el.style.color = '#ffffff';
-                el.style.background = 'rgba(216, 0, 50, 0.7)'; // E kuqe e fortë
-                el.style.padding = '8px 15px';
-                el.style.borderRadius = '25px';
-                el.style.fontSize = '25px';
-            } else if(chosen === '💍' || chosen === '💎') {
-                el.style.filter = 'none'; // Hiq hijen për unazat që të duken pastër
-            } else {
-                el.style.color = '#d80032'; // Zemrat më të kuqe
-            }
-            
-            // Shpejtësi më e ngadaltë për t'u shijuar
-            const duration = Math.random() * (10 - 6) + 6;
-            el.style.animation = `floatUp ${duration}s linear forwards`;
-            
-            document.body.appendChild(el);
-
-            setTimeout(() => {
-                el.remove();
-            }, duration * 1000);
-        }
-
-        setInterval(createHeart, 300); // Shpeshtësia
-    </script>
-</body>
-</html>
+        /* Efekti i zemrës brenda rrethit */
+        .heart-inner {
+            font-size: 40px; /* Mad
