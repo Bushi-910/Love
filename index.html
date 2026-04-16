@@ -3,48 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Për Jettën Time ❤️</title>
+    <title>Për Soni ❤️</title>
     <style>
-        /* Sfondi me gradient romantik */
+        /* Sfondi me gradient më të fortë romantik */
         body {
             margin: 0;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffecd2, #fcb69f);
-            background-size: 400% 400%;
-            animation: gradient 10s ease infinite;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #fcb69f 100%);
             overflow: hidden;
             font-family: 'Poppins', sans-serif;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Kutia me efekt xhami */
+        /* Kutia me efekt xhami më të fortë dhe kornizë */
         .container {
             text-align: center;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px 0 rgba(255, 77, 109, 0.4);
-            max-width: 85%;
-            color: white;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 40px;
+            border: 4px solid #fff;
+            box-shadow: 0 15px 50px rgba(255, 77, 109, 0.6);
+            max-width: 80%;
+            width: 1000px;
         }
 
+        /* Titulli më i madh dhe i fortë */
         h1 { 
-            font-size: 2.5rem; 
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            color: #d80032; /* E kuqe e fortë */
+            font-size: 3.5rem; 
+            margin-bottom: 25px;
+            margin-top: 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             animation: pulse 2s infinite;
+            font-weight: 800;
         }
 
         @keyframes pulse {
@@ -53,23 +50,27 @@
             100% { transform: scale(1); }
         }
 
+        /* Teksti kryesor: Shkrim shumë më i madh dhe i zi për qartësi */
         p { 
-            font-size: 1.2rem; 
-            line-height: 1.6; 
-            font-weight: 500;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+            color: #222; /* E zezë/gri e errët */
+            font-size: 2.2rem; 
+            line-height: 1.4; 
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: none;
         }
 
+        /* Kutia e emrave më e madhe */
         .names-tag {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             display: inline-block;
-            margin-top: 25px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #ff4d6d;
-            padding: 12px 25px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            font-weight: bold;
+            background: rgba(255, 255, 255, 1);
+            color: #d80032;
+            padding: 15px 35px;
+            border-radius: 60px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            font-weight: 900;
+            border: 2px solid #d80032;
         }
 
         /* Elementet që fluturojnë */
@@ -77,15 +78,16 @@
             position: absolute;
             pointer-events: none;
             z-index: 1;
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.6));
-            font-weight: bold;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.7));
+            font-weight: 900;
+            opacity: 0.9;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+            5% { opacity: 0.9; }
+            95% { opacity: 0.9; }
+            100% { transform: translateY(-30vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
@@ -104,26 +106,30 @@
             const el = document.createElement('div');
             el.className = 'floating';
             
-            // Emrat tuaj dhe simbolet që do fluturojnë
-            const items = ['❤️', '💖', 'Soni', 'Bushi', '✨', '🌸'];
+            // Emrat tuaj, zemrat dhe unazat
+            const items = ['❤️', '💖', 'Soni', 'Bushi', '✨', '🌸', '💍', '💎'];
             const chosen = items[Math.floor(Math.random() * items.length)];
             
             el.innerHTML = chosen;
             
             el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * (25 - 15) + 15 + 'px';
+            el.style.fontSize = Math.random() * (40 - 25) + 25 + 'px'; // Më të mëdha
             
-            // Ngjyra e emrave dhe zemrave
+            // Stilimi i veçantë për emrat dhe unazat
             if(chosen === 'Soni' || chosen === 'Bushi') {
                 el.style.color = '#ffffff';
-                el.style.background = 'rgba(255, 77, 109, 0.5)';
-                el.style.padding = '5px 10px';
-                el.style.borderRadius = '20px';
+                el.style.background = 'rgba(216, 0, 50, 0.7)'; // E kuqe e fortë
+                el.style.padding = '8px 15px';
+                el.style.borderRadius = '25px';
+                el.style.fontSize = '25px';
+            } else if(chosen === '💍' || chosen === '💎') {
+                el.style.filter = 'none'; // Hiq hijen për unazat që të duken pastër
             } else {
-                el.style.color = '#ff4d6d';
+                el.style.color = '#d80032'; // Zemrat më të kuqe
             }
             
-            const duration = Math.random() * (7 - 4) + 4;
+            // Shpejtësi më e ngadaltë për t'u shijuar
+            const duration = Math.random() * (10 - 6) + 6;
             el.style.animation = `floatUp ${duration}s linear forwards`;
             
             document.body.appendChild(el);
@@ -133,7 +139,7 @@
             }, duration * 1000);
         }
 
-        setInterval(createHeart, 350);
+        setInterval(createHeart, 300); // Shpeshtësia
     </script>
 </body>
 </html>
